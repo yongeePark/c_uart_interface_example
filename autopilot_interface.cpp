@@ -240,6 +240,7 @@ read_messages()
 	Time_Stamps this_timestamps;
 
 	int i=0;
+	int num_all_points=0;
 	// Blocking wait for new data
 	while ( !received_all and !time_to_exit )
 	{
@@ -256,7 +257,8 @@ read_messages()
 			// show pointclouds
 			mavlink_pointcloud_t pc_msg;
 			mavlink_msg_pointcloud_decode(&message, &pc_msg);
-			std::cout<<"current number of the pointts : "<<pc_msg.number<<std::endl;
+			num_all_points +=pc_msg.number;
+			std::cout<<"current number of the all points : "<<num_all_points<<std::endl;
 			std::cout<<"points 01 : "<<pc_msg.x01<<"\t"<<pc_msg.y01<<"\t"<<pc_msg.z01<<std::endl;
 			std::cout<<"points 20 : "<<pc_msg.x20<<"\t"<<pc_msg.y20<<"\t"<<pc_msg.z20<<std::endl;
 		}
