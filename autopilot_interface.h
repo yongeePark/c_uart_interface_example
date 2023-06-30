@@ -276,6 +276,7 @@ public:
 	void stop();
 
 	void send();
+	void receive();
 
 	void start_read_thread();
 	void start_write_thread(void);

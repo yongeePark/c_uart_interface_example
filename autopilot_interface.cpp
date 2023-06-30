@@ -247,6 +247,7 @@ read_messages()
 		// ----------------------------------------------------------------------
 		mavlink_message_t message;
 		success = port->read_message(message);
+		std::cout<<"Success : "<<success<<std::endl;
 
 		// ----------------------------------------------------------------------
 		//   HANDLE MESSAGE
@@ -595,6 +596,32 @@ send()
 	result = pthread_create( &write_tid, NULL, &start_autopilot_interface_write_thread, this );
 }
 
+void
+Autopilot_Interface::
+receive()
+{
+	int result;
+	// --------------------------------------------------------------------------
+	//   CHECK PORT
+	// --------------------------------------------------------------------------
+
+	if ( !port->is_running() ) // PORT_OPEN
+	{
+		fprintf(stderr,"ERROR: port not open\n");
+		throw 1;
+	}
+	// --------------------------------------------------------------------------
+	//   READ THREAD
+	// --------------------------------------------------------------------------
+
+	printf("START READ THREAD \n");
+
+	result = pthread_create( &read_tid, NULL, &start_autopilot_interface_read_thread, this );
+	if ( result ) throw result;
+
+	// now we're reading messages
+	printf("\n");
+}
 // ------------------------------------------------------------------------------
 //   STARTUP
 // ------------------------------------------------------------------------------
