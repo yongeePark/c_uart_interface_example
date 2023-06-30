@@ -981,7 +981,7 @@ write_thread(void)
 	sp.vz       = 0.0;
 	sp.yaw_rate = 0.0;
 
-	// set position target
+	// set position target////
 	{
 		std::lock_guard<std::mutex> lock(current_setpoint.mutex);
 		current_setpoint.data = sp;

@@ -63,9 +63,9 @@
 #include <pthread.h> // This uses POSIX Threads
 #include <unistd.h>  // UNIX standard function definitions
 #include <mutex>
-
-#include <pointcloud/pointcloud.h>
-#include <pointcloud/mavlink.h>
+//
+// #include <pointcloud/pointcloud.h>
+#include <temp/pointcloud/pointcloud.h>
 
 // #include <pointcloud/mavlink.h>
 

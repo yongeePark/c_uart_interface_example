@@ -1,0 +1,82 @@
+<?xml version='1.0'?>
+    <mavlink>
+        <include>common.xml</include>
+        <version>3</version>
+        <enums>
+        </enums>
+        <messages>
+            <!-- Messages for OROCA BLDC  -->
+            <message id="220" name="POINTCLOUD">
+            <description>Custom Point Cloud Message</description>
+            <field type="uint32_t" name="number" units="ms" display="default">Timestamp in milliseconds</field>
+            <field type="float" name="x01" units="m" display="default">position</field>
+            <field type="float" name="y01" units="m" display="default">position</field>
+            <field type="float" name="z01" units="m" display="default">position</field>
+
+            <!-- <field type="float" name="x02" units="m" display="default">position</field>
+            <field type="float" name="y02" units="m" display="default">position</field>
+            <field type="float" name="z02" units="m" display="default">position</field>
+            <field type="float" name="x03" units="m" display="default">position</field>
+            <field type="float" name="y03" units="m" display="default">position</field>
+            <field type="float" name="z03" units="m" display="default">position</field>
+            <field type="float" name="x04" units="m" display="default">position</field>
+            <field type="float" name="y04" units="m" display="default">position</field>
+            <field type="float" name="z04" units="m" display="default">position</field>
+            <field type="float" name="x05" units="m" display="default">position</field>
+            <field type="float" name="y05" units="m" display="default">position</field>
+            <field type="float" name="z05" units="m" display="default">position</field>
+            <field type="float" name="x06" units="m" display="default">position</field>
+            <field type="float" name="y06" units="m" display="default">position</field>
+            <field type="float" name="z06" units="m" display="default">position</field>
+            <field type="float" name="x07" units="m" display="default">position</field>
+            <field type="float" name="y07" units="m" display="default">position</field>
+            <field type="float" name="z07" units="m" display="default">position</field>
+            <field type="float" name="x08" units="m" display="default">position</field>
+            <field type="float" name="y08" units="m" display="default">position</field>
+            <field type="float" name="z08" units="m" display="default">position</field>
+            <field type="float" name="x09" units="m" display="default">position</field>
+            <field type="float" name="y09" units="m" display="default">position</field>
+            <field type="float" name="z09" units="m" display="default">position</field>
+            <field type="float" name="x10" units="m" display="default">position</field>
+            <field type="float" name="y10" units="m" display="default">position</field>
+            <field type="float" name="z10" units="m" display="default">position</field>
+            <field type="float" name="x11" units="m" display="default">position</field>
+            <field type="float" name="y11" units="m" display="default">position</field>
+            <field type="float" name="z11" units="m" display="default">position</field>
+            <field type="float" name="x12" units="m" display="default">position</field>
+            <field type="float" name="y12" units="m" display="default">position</field>
+            <field type="float" name="z12" units="m" display="default">position</field>
+            <field type="float" name="x13" units="m" display="default">position</field>
+            <field type="float" name="y13" units="m" display="default">position</field>
+            <field type="float" name="z13" units="m" display="default">position</field>
+            <field type="float" name="x14" units="m" display="default">position</field>
+            <field type="float" name="y14" units="m" display="default">position</field>
+            <field type="float" name="z14" units="m" display="default">position</field>
+            <field type="float" name="x15" units="m" display="default">position</field>
+            <field type="float" name="y15" units="m" display="default">position</field>
+            <field type="float" name="z15" units="m" display="default">position</field>
+            <field type="float" name="x16" units="m" display="default">position</field>
+            <field type="float" name="y16" units="m" display="default">position</field>
+            <field type="float" name="z16" units="m" display="default">position</field>
+            <field type="float" name="x17" units="m" display="default">position</field>
+            <field type="float" name="y17" units="m" display="default">position</field>
+            <field type="float" name="z17" units="m" display="default">position</field>
+            <field type="float" name="x18" units="m" display="default">position</field>
+            <field type="float" name="y18" units="m" display="default">position</field>
+            <field type="float" name="z18" units="m" display="default">position</field>
+            <field type="float" name="x19" units="m" display="default">position</field>
+            <field type="float" name="y19" units="m" display="default">position</field>
+            <field type="float" name="z19" units="m" display="default">position</field>
+            <field type="float" name="x20" units="m" display="default">position</field>
+            <field type="float" name="y20" units="m" display="default">position</field>
+            <field type="float" name="z20" units="m" display="default">position</field>
+            
+            <field type="float" name="x21" units="m" display="default">position</field>
+            <field type="float" name="y21" units="m" display="default">position</field>
+            <field type="float" name="z21" units="m" display="default">position</field> -->
+ 
+
+
+            </message>
+        </messages>
+    </mavlink>
