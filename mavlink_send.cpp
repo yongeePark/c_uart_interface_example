@@ -156,7 +156,7 @@ top (int argc, char **argv)
 	 * Now we can implement the algorithm we want on top of the autopilot interface
 	 */
 	std::cout<<"here?"<<std::endl;
-	int sec=5;
+	int sec=1;
 	usleep(1000000*sec);
 	//commands(autopilot_interface, autotakeoff);
 	std::cout<<"here2?"<<std::endl;

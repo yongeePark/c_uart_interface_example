@@ -13,7 +13,7 @@
             <field type="float" name="y01" units="m" display="default">position</field>
             <field type="float" name="z01" units="m" display="default">position</field>
 
-            <!-- <field type="float" name="x02" units="m" display="default">position</field>
+            <field type="float" name="x02" units="m" display="default">position</field>
             <field type="float" name="y02" units="m" display="default">position</field>
             <field type="float" name="z02" units="m" display="default">position</field>
             <field type="float" name="x03" units="m" display="default">position</field>
@@ -73,7 +73,7 @@
             
             <field type="float" name="x21" units="m" display="default">position</field>
             <field type="float" name="y21" units="m" display="default">position</field>
-            <field type="float" name="z21" units="m" display="default">position</field> -->
+            <field type="float" name="z21" units="m" display="default">position</field>
  
 
 

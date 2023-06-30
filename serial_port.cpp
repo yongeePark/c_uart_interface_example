@@ -131,7 +131,6 @@ read_message(mavlink_message_t &message)
 	{
 		// the parsing
 		msgReceived = mavlink_parse_char(MAVLINK_COMM_1, cp, &message, &status);
-		std::cout<<"msg scheck : "<<msgReceived<<std::endl;
 		// check for dropped packets
 		if ( (lastStatus.packet_rx_drop_count != status.packet_rx_drop_count) && debug )
 		{
