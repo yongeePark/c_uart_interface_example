@@ -421,7 +421,76 @@ write_pointcloud()
 	mavlink_pointcloud_t mavlink_pointcloud;
 	uint8_t system_id = 220;
 	mavlink_pointcloud.number = 10;
+	mavlink_pointcloud.x01 = 0;
+	mavlink_pointcloud.y01 = 0;
+	mavlink_pointcloud.z01 = 0;
 	
+	// mavlink_pointcloud.x02 = 0;
+	// mavlink_pointcloud.y02 = 0;
+	// mavlink_pointcloud.z02 = 0;
+	// mavlink_pointcloud.x03 = 0;
+	// mavlink_pointcloud.y03 = 0;
+	// mavlink_pointcloud.z03 = 0;
+	// mavlink_pointcloud.x04 = 0;
+	// mavlink_pointcloud.y04 = 0;
+	// mavlink_pointcloud.z04 = 0;
+	// mavlink_pointcloud.x05 = 0;
+	// mavlink_pointcloud.y05 = 0;
+	// mavlink_pointcloud.z05 = 0;
+	// mavlink_pointcloud.x06 = 0;
+	// mavlink_pointcloud.y06 = 0;
+	// mavlink_pointcloud.z06 = 0;
+	// mavlink_pointcloud.x07 = 0;
+	// mavlink_pointcloud.y07 = 0;
+	// mavlink_pointcloud.z07 = 0;
+	// mavlink_pointcloud.x08 = 0;
+	// mavlink_pointcloud.y08 = 0;
+	// mavlink_pointcloud.z08 = 0;
+	// mavlink_pointcloud.x09 = 0;
+	// mavlink_pointcloud.y09 = 0;
+	// mavlink_pointcloud.z09 = 0;
+
+	// mavlink_pointcloud.x10 = 0;
+	// mavlink_pointcloud.y10 = 0;
+	// mavlink_pointcloud.z10 = 0;
+
+	// mavlink_pointcloud.x11 = 0;
+	// mavlink_pointcloud.y11 = 0;
+	// mavlink_pointcloud.z11 = 0;
+	// mavlink_pointcloud.x12 = 0;
+	// mavlink_pointcloud.y12 = 0;
+	// mavlink_pointcloud.z12 = 0;
+	// mavlink_pointcloud.x13 = 0;
+	// mavlink_pointcloud.y13 = 0;
+	// mavlink_pointcloud.z13 = 0;
+	// mavlink_pointcloud.x14 = 0;
+	// mavlink_pointcloud.y14 = 0;
+	// mavlink_pointcloud.z14 = 0;
+	// mavlink_pointcloud.x15 = 0;
+	// mavlink_pointcloud.y15 = 0;
+	// mavlink_pointcloud.z15 = 0;
+	// mavlink_pointcloud.x16 = 0;
+	// mavlink_pointcloud.y16 = 0;
+	// mavlink_pointcloud.z16 = 0;
+	// mavlink_pointcloud.x17 = 0;
+	// mavlink_pointcloud.y17 = 0;
+	// mavlink_pointcloud.z17 = 0;
+	// mavlink_pointcloud.x18 = 0;
+	// mavlink_pointcloud.y18 = 0;
+	// mavlink_pointcloud.z18 = 0;
+	// mavlink_pointcloud.x19 = 0;
+	// mavlink_pointcloud.y19 = 0;
+	// mavlink_pointcloud.z19 = 0;
+	// mavlink_pointcloud.x20 = 0;
+	// mavlink_pointcloud.y20 = 0;
+	// mavlink_pointcloud.z20 = 0;
+
+	// mavlink_pointcloud.x21 = 0;
+	// mavlink_pointcloud.y21 = 0;
+	// mavlink_pointcloud.z21 = 0;
+
+
+
 	mavlink_message_t message;
 	// mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 	mavlink_msg_pointcloud_encode(system_id, companion_id, &message, &mavlink_pointcloud);
@@ -932,10 +1001,10 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		usleep(1);   // Stream at 4Hz
-		// write_setpoint();
+		usleep(100000);   // Stream at 4Hz
+		write_setpoint();
 		// std::cout<<"send"<<std::endl;
-		write_pointcloud();
+		// write_pointcloud();
 	}
 
 	// signal end
