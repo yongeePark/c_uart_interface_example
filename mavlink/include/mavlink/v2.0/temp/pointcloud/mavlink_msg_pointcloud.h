@@ -66,18 +66,15 @@ typedef struct __mavlink_pointcloud_t {
  float x20; /*< [m] position*/
  float y20; /*< [m] position*/
  float z20; /*< [m] position*/
- float x21; /*< [m] position*/
- float y21; /*< [m] position*/
- float z21; /*< [m] position*/
 } mavlink_pointcloud_t;
 
-#define MAVLINK_MSG_ID_POINTCLOUD_LEN 256
-#define MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN 256
-#define MAVLINK_MSG_ID_205_LEN 256
-#define MAVLINK_MSG_ID_205_MIN_LEN 256
+#define MAVLINK_MSG_ID_POINTCLOUD_LEN 244
+#define MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN 244
+#define MAVLINK_MSG_ID_205_LEN 244
+#define MAVLINK_MSG_ID_205_MIN_LEN 244
 
-#define MAVLINK_MSG_ID_POINTCLOUD_CRC 202
-#define MAVLINK_MSG_ID_205_CRC 202
+#define MAVLINK_MSG_ID_POINTCLOUD_CRC 242
+#define MAVLINK_MSG_ID_205_CRC 242
 
 
 
@@ -85,7 +82,7 @@ typedef struct __mavlink_pointcloud_t {
 #define MAVLINK_MESSAGE_INFO_POINTCLOUD { \
     205, \
     "POINTCLOUD", \
-    64, \
+    61, \
     {  { "number", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_pointcloud_t, number) }, \
          { "x01", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_pointcloud_t, x01) }, \
          { "y01", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_pointcloud_t, y01) }, \
@@ -147,15 +144,12 @@ typedef struct __mavlink_pointcloud_t {
          { "x20", NULL, MAVLINK_TYPE_FLOAT, 0, 232, offsetof(mavlink_pointcloud_t, x20) }, \
          { "y20", NULL, MAVLINK_TYPE_FLOAT, 0, 236, offsetof(mavlink_pointcloud_t, y20) }, \
          { "z20", NULL, MAVLINK_TYPE_FLOAT, 0, 240, offsetof(mavlink_pointcloud_t, z20) }, \
-         { "x21", NULL, MAVLINK_TYPE_FLOAT, 0, 244, offsetof(mavlink_pointcloud_t, x21) }, \
-         { "y21", NULL, MAVLINK_TYPE_FLOAT, 0, 248, offsetof(mavlink_pointcloud_t, y21) }, \
-         { "z21", NULL, MAVLINK_TYPE_FLOAT, 0, 252, offsetof(mavlink_pointcloud_t, z21) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_POINTCLOUD { \
     "POINTCLOUD", \
-    64, \
+    61, \
     {  { "number", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_pointcloud_t, number) }, \
          { "x01", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_pointcloud_t, x01) }, \
          { "y01", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_pointcloud_t, y01) }, \
@@ -217,9 +211,6 @@ typedef struct __mavlink_pointcloud_t {
          { "x20", NULL, MAVLINK_TYPE_FLOAT, 0, 232, offsetof(mavlink_pointcloud_t, x20) }, \
          { "y20", NULL, MAVLINK_TYPE_FLOAT, 0, 236, offsetof(mavlink_pointcloud_t, y20) }, \
          { "z20", NULL, MAVLINK_TYPE_FLOAT, 0, 240, offsetof(mavlink_pointcloud_t, z20) }, \
-         { "x21", NULL, MAVLINK_TYPE_FLOAT, 0, 244, offsetof(mavlink_pointcloud_t, x21) }, \
-         { "y21", NULL, MAVLINK_TYPE_FLOAT, 0, 248, offsetof(mavlink_pointcloud_t, y21) }, \
-         { "z21", NULL, MAVLINK_TYPE_FLOAT, 0, 252, offsetof(mavlink_pointcloud_t, z21) }, \
          } \
 }
 #endif
@@ -291,13 +282,10 @@ typedef struct __mavlink_pointcloud_t {
  * @param x20 [m] position
  * @param y20 [m] position
  * @param z20 [m] position
- * @param x21 [m] position
- * @param y21 [m] position
- * @param z21 [m] position
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_pointcloud_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20, float x21, float y21, float z21)
+                               uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_POINTCLOUD_LEN];
@@ -362,9 +350,6 @@ static inline uint16_t mavlink_msg_pointcloud_pack(uint8_t system_id, uint8_t co
     _mav_put_float(buf, 232, x20);
     _mav_put_float(buf, 236, y20);
     _mav_put_float(buf, 240, z20);
-    _mav_put_float(buf, 244, x21);
-    _mav_put_float(buf, 248, y21);
-    _mav_put_float(buf, 252, z21);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_POINTCLOUD_LEN);
 #else
@@ -430,9 +415,6 @@ static inline uint16_t mavlink_msg_pointcloud_pack(uint8_t system_id, uint8_t co
     packet.x20 = x20;
     packet.y20 = y20;
     packet.z20 = z20;
-    packet.x21 = x21;
-    packet.y21 = y21;
-    packet.z21 = z21;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_POINTCLOUD_LEN);
 #endif
@@ -508,14 +490,11 @@ static inline uint16_t mavlink_msg_pointcloud_pack(uint8_t system_id, uint8_t co
  * @param x20 [m] position
  * @param y20 [m] position
  * @param z20 [m] position
- * @param x21 [m] position
- * @param y21 [m] position
- * @param z21 [m] position
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_pointcloud_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint32_t number,float x01,float y01,float z01,float x02,float y02,float z02,float x03,float y03,float z03,float x04,float y04,float z04,float x05,float y05,float z05,float x06,float y06,float z06,float x07,float y07,float z07,float x08,float y08,float z08,float x09,float y09,float z09,float x10,float y10,float z10,float x11,float y11,float z11,float x12,float y12,float z12,float x13,float y13,float z13,float x14,float y14,float z14,float x15,float y15,float z15,float x16,float y16,float z16,float x17,float y17,float z17,float x18,float y18,float z18,float x19,float y19,float z19,float x20,float y20,float z20,float x21,float y21,float z21)
+                                   uint32_t number,float x01,float y01,float z01,float x02,float y02,float z02,float x03,float y03,float z03,float x04,float y04,float z04,float x05,float y05,float z05,float x06,float y06,float z06,float x07,float y07,float z07,float x08,float y08,float z08,float x09,float y09,float z09,float x10,float y10,float z10,float x11,float y11,float z11,float x12,float y12,float z12,float x13,float y13,float z13,float x14,float y14,float z14,float x15,float y15,float z15,float x16,float y16,float z16,float x17,float y17,float z17,float x18,float y18,float z18,float x19,float y19,float z19,float x20,float y20,float z20)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_POINTCLOUD_LEN];
@@ -580,9 +559,6 @@ static inline uint16_t mavlink_msg_pointcloud_pack_chan(uint8_t system_id, uint8
     _mav_put_float(buf, 232, x20);
     _mav_put_float(buf, 236, y20);
     _mav_put_float(buf, 240, z20);
-    _mav_put_float(buf, 244, x21);
-    _mav_put_float(buf, 248, y21);
-    _mav_put_float(buf, 252, z21);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_POINTCLOUD_LEN);
 #else
@@ -648,9 +624,6 @@ static inline uint16_t mavlink_msg_pointcloud_pack_chan(uint8_t system_id, uint8
     packet.x20 = x20;
     packet.y20 = y20;
     packet.z20 = z20;
-    packet.x21 = x21;
-    packet.y21 = y21;
-    packet.z21 = z21;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_POINTCLOUD_LEN);
 #endif
@@ -669,7 +642,7 @@ static inline uint16_t mavlink_msg_pointcloud_pack_chan(uint8_t system_id, uint8
  */
 static inline uint16_t mavlink_msg_pointcloud_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_pointcloud_t* pointcloud)
 {
-    return mavlink_msg_pointcloud_pack(system_id, component_id, msg, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20, pointcloud->x21, pointcloud->y21, pointcloud->z21);
+    return mavlink_msg_pointcloud_pack(system_id, component_id, msg, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20);
 }
 
 /**
@@ -683,7 +656,7 @@ static inline uint16_t mavlink_msg_pointcloud_encode(uint8_t system_id, uint8_t 
  */
 static inline uint16_t mavlink_msg_pointcloud_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_pointcloud_t* pointcloud)
 {
-    return mavlink_msg_pointcloud_pack_chan(system_id, component_id, chan, msg, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20, pointcloud->x21, pointcloud->y21, pointcloud->z21);
+    return mavlink_msg_pointcloud_pack_chan(system_id, component_id, chan, msg, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20);
 }
 
 /**
@@ -751,13 +724,10 @@ static inline uint16_t mavlink_msg_pointcloud_encode_chan(uint8_t system_id, uin
  * @param x20 [m] position
  * @param y20 [m] position
  * @param z20 [m] position
- * @param x21 [m] position
- * @param y21 [m] position
- * @param z21 [m] position
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_pointcloud_send(mavlink_channel_t chan, uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20, float x21, float y21, float z21)
+static inline void mavlink_msg_pointcloud_send(mavlink_channel_t chan, uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_POINTCLOUD_LEN];
@@ -822,9 +792,6 @@ static inline void mavlink_msg_pointcloud_send(mavlink_channel_t chan, uint32_t 
     _mav_put_float(buf, 232, x20);
     _mav_put_float(buf, 236, y20);
     _mav_put_float(buf, 240, z20);
-    _mav_put_float(buf, 244, x21);
-    _mav_put_float(buf, 248, y21);
-    _mav_put_float(buf, 252, z21);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_POINTCLOUD, buf, MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN, MAVLINK_MSG_ID_POINTCLOUD_LEN, MAVLINK_MSG_ID_POINTCLOUD_CRC);
 #else
@@ -890,9 +857,6 @@ static inline void mavlink_msg_pointcloud_send(mavlink_channel_t chan, uint32_t 
     packet.x20 = x20;
     packet.y20 = y20;
     packet.z20 = z20;
-    packet.x21 = x21;
-    packet.y21 = y21;
-    packet.z21 = z21;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_POINTCLOUD, (const char *)&packet, MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN, MAVLINK_MSG_ID_POINTCLOUD_LEN, MAVLINK_MSG_ID_POINTCLOUD_CRC);
 #endif
@@ -906,7 +870,7 @@ static inline void mavlink_msg_pointcloud_send(mavlink_channel_t chan, uint32_t 
 static inline void mavlink_msg_pointcloud_send_struct(mavlink_channel_t chan, const mavlink_pointcloud_t* pointcloud)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_pointcloud_send(chan, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20, pointcloud->x21, pointcloud->y21, pointcloud->z21);
+    mavlink_msg_pointcloud_send(chan, pointcloud->number, pointcloud->x01, pointcloud->y01, pointcloud->z01, pointcloud->x02, pointcloud->y02, pointcloud->z02, pointcloud->x03, pointcloud->y03, pointcloud->z03, pointcloud->x04, pointcloud->y04, pointcloud->z04, pointcloud->x05, pointcloud->y05, pointcloud->z05, pointcloud->x06, pointcloud->y06, pointcloud->z06, pointcloud->x07, pointcloud->y07, pointcloud->z07, pointcloud->x08, pointcloud->y08, pointcloud->z08, pointcloud->x09, pointcloud->y09, pointcloud->z09, pointcloud->x10, pointcloud->y10, pointcloud->z10, pointcloud->x11, pointcloud->y11, pointcloud->z11, pointcloud->x12, pointcloud->y12, pointcloud->z12, pointcloud->x13, pointcloud->y13, pointcloud->z13, pointcloud->x14, pointcloud->y14, pointcloud->z14, pointcloud->x15, pointcloud->y15, pointcloud->z15, pointcloud->x16, pointcloud->y16, pointcloud->z16, pointcloud->x17, pointcloud->y17, pointcloud->z17, pointcloud->x18, pointcloud->y18, pointcloud->z18, pointcloud->x19, pointcloud->y19, pointcloud->z19, pointcloud->x20, pointcloud->y20, pointcloud->z20);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_POINTCLOUD, (const char *)pointcloud, MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN, MAVLINK_MSG_ID_POINTCLOUD_LEN, MAVLINK_MSG_ID_POINTCLOUD_CRC);
 #endif
@@ -920,7 +884,7 @@ static inline void mavlink_msg_pointcloud_send_struct(mavlink_channel_t chan, co
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_pointcloud_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20, float x21, float y21, float z21)
+static inline void mavlink_msg_pointcloud_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t number, float x01, float y01, float z01, float x02, float y02, float z02, float x03, float y03, float z03, float x04, float y04, float z04, float x05, float y05, float z05, float x06, float y06, float z06, float x07, float y07, float z07, float x08, float y08, float z08, float x09, float y09, float z09, float x10, float y10, float z10, float x11, float y11, float z11, float x12, float y12, float z12, float x13, float y13, float z13, float x14, float y14, float z14, float x15, float y15, float z15, float x16, float y16, float z16, float x17, float y17, float z17, float x18, float y18, float z18, float x19, float y19, float z19, float x20, float y20, float z20)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -985,9 +949,6 @@ static inline void mavlink_msg_pointcloud_send_buf(mavlink_message_t *msgbuf, ma
     _mav_put_float(buf, 232, x20);
     _mav_put_float(buf, 236, y20);
     _mav_put_float(buf, 240, z20);
-    _mav_put_float(buf, 244, x21);
-    _mav_put_float(buf, 248, y21);
-    _mav_put_float(buf, 252, z21);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_POINTCLOUD, buf, MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN, MAVLINK_MSG_ID_POINTCLOUD_LEN, MAVLINK_MSG_ID_POINTCLOUD_CRC);
 #else
@@ -1053,9 +1014,6 @@ static inline void mavlink_msg_pointcloud_send_buf(mavlink_message_t *msgbuf, ma
     packet->x20 = x20;
     packet->y20 = y20;
     packet->z20 = z20;
-    packet->x21 = x21;
-    packet->y21 = y21;
-    packet->z21 = z21;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_POINTCLOUD, (const char *)packet, MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN, MAVLINK_MSG_ID_POINTCLOUD_LEN, MAVLINK_MSG_ID_POINTCLOUD_CRC);
 #endif
@@ -1678,36 +1636,6 @@ static inline float mavlink_msg_pointcloud_get_z20(const mavlink_message_t* msg)
 }
 
 /**
- * @brief Get field x21 from pointcloud message
- *
- * @return [m] position
- */
-static inline float mavlink_msg_pointcloud_get_x21(const mavlink_message_t* msg)
-{
-    return _MAV_RETURN_float(msg,  244);
-}
-
-/**
- * @brief Get field y21 from pointcloud message
- *
- * @return [m] position
- */
-static inline float mavlink_msg_pointcloud_get_y21(const mavlink_message_t* msg)
-{
-    return _MAV_RETURN_float(msg,  248);
-}
-
-/**
- * @brief Get field z21 from pointcloud message
- *
- * @return [m] position
- */
-static inline float mavlink_msg_pointcloud_get_z21(const mavlink_message_t* msg)
-{
-    return _MAV_RETURN_float(msg,  252);
-}
-
-/**
  * @brief Decode a pointcloud message into a struct
  *
  * @param msg The message to decode
@@ -1777,9 +1705,6 @@ static inline void mavlink_msg_pointcloud_decode(const mavlink_message_t* msg, m
     pointcloud->x20 = mavlink_msg_pointcloud_get_x20(msg);
     pointcloud->y20 = mavlink_msg_pointcloud_get_y20(msg);
     pointcloud->z20 = mavlink_msg_pointcloud_get_z20(msg);
-    pointcloud->x21 = mavlink_msg_pointcloud_get_x21(msg);
-    pointcloud->y21 = mavlink_msg_pointcloud_get_y21(msg);
-    pointcloud->z21 = mavlink_msg_pointcloud_get_z21(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_POINTCLOUD_LEN? msg->len : MAVLINK_MSG_ID_POINTCLOUD_LEN;
         memset(pointcloud, 0, MAVLINK_MSG_ID_POINTCLOUD_LEN);

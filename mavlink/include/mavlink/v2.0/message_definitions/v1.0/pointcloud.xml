@@ -71,10 +71,10 @@
             <field type="float" name="y20" units="m" display="default">position</field>
             <field type="float" name="z20" units="m" display="default">position</field>
             
-            <field type="float" name="x21" units="m" display="default">position</field>
+            <!-- <field type="float" name="x21" units="m" display="default">position</field>
             <field type="float" name="y21" units="m" display="default">position</field>
             <field type="float" name="z21" units="m" display="default">position</field>
- 
+  -->
 
 
             </message>
