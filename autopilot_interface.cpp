@@ -908,7 +908,7 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		// usleep(125000);   // Stream at 4Hz
+		usleep(125000);   // Stream at 4Hz
 		write_setpoint();
 	}
 
