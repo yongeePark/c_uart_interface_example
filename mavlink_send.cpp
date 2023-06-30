@@ -156,7 +156,9 @@ top (int argc, char **argv)
 	 * Now we can implement the algorithm we want on top of the autopilot interface
 	 */
 	std::cout<<"here?"<<std::endl;
-	commands(autopilot_interface, autotakeoff);
+	int sec=5;
+	usleep(1000000*sec);
+	//commands(autopilot_interface, autotakeoff);
 	std::cout<<"here2?"<<std::endl;
 
 	// --------------------------------------------------------------------------
@@ -166,10 +168,11 @@ top (int argc, char **argv)
 	/*
 	 * Now that we are done we can stop the threads and close the port
 	 */
-	autopilot_interface.stop();
-	port->stop();
 
-	delete port;
+	// autopilot_interface.stop();
+	// port->stop();
+	// delete port;
+	std::cout<<"end of the program"<<std::endl;
 
 	// --------------------------------------------------------------------------
 	//   DONE

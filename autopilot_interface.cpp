@@ -413,7 +413,29 @@ write_message(mavlink_message_t message)
 	// Done!
 	return len;
 }
+void
+Autopilot_Interface::
+write_pointcloud()
+{
+	//
+	mavlink_pointcloud_t mavlink_pointcloud;
+	uint8_t system_id = 220;
+	mavlink_pointcloud.number = 10;
+	
+	mavlink_message_t message;
+	// mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
+	mavlink_msg_pointcloud_encode(system_id, companion_id, &message, &mavlink_pointcloud);
 
+	int len = write_message(message);
+
+	// check the write
+	if ( len <= 0 )
+		fprintf(stderr,"WARNING: could not send POINTCLOUD \n");
+	//	else
+	//		printf("%lu POSITION_TARGET  = [ %f , %f , %f ] \n", write_count, position_target.x, position_target.y, position_target.z);
+
+	return;
+}
 // ------------------------------------------------------------------------------
 //   Write Setpoint Message
 // ------------------------------------------------------------------------------
@@ -898,9 +920,11 @@ write_thread(void)
 		current_setpoint.data = sp;
 	}
 
+	write_pointcloud();
+
 	// write a message and signal writing
 	std::cout<<"Check"<<std::endl;	
-	write_setpoint();
+	// write_setpoint();
 	writing_status = true;
 
 	// Pixhawk needs to see off-board commands at minimum 2Hz,
@@ -908,8 +932,10 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		usleep(125000);   // Stream at 4Hz
-		write_setpoint();
+		usleep(1);   // Stream at 4Hz
+		// write_setpoint();
+		// std::cout<<"send"<<std::endl;
+		write_pointcloud();
 	}
 
 	// signal end

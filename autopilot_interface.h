@@ -65,6 +65,7 @@
 #include <mutex>
 
 #include <common/mavlink.h>
+#include <pointcloud/mavlink_msg_pointcloud.h>
 
 // ------------------------------------------------------------------------------
 //   Defines
@@ -277,6 +278,7 @@ public:
 
 	void send();
 	void receive();
+	void write_pointcloud();
 
 	void start_read_thread();
 	void start_write_thread(void);
