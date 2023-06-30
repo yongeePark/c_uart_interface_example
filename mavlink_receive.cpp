@@ -74,7 +74,7 @@ top (int argc, char **argv)
 	char *uart_name = (char*)"/dev/ttyUSB0";
 #endif
 	// int baudrate = 57600;
-	int baudrate = 115200;
+	int baudrate = 57600;
 
 	bool use_udp = false;
 	char *udp_ip = (char*)"127.0.0.1";
