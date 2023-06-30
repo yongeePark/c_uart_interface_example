@@ -1003,7 +1003,7 @@ write_thread(void)
 		usleep(500000);   // Stream at 4Hz
 		// write_setpoint();
 		// std::cout<<"send"<<std::endl;
-		write_pointcloud(); //
+		write_pointcloud(); ////
 	}
 
 	// signal end
