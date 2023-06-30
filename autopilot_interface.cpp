@@ -247,7 +247,11 @@ read_messages()
 		// ----------------------------------------------------------------------
 		mavlink_message_t message;
 		success = port->read_message(message);
-		std::cout<<"Success : "<<success<<std::endl;
+		if(success)
+		{
+			std::cout<<"Success : "<<success<<std::endl;
+		}
+		
 
 		// ----------------------------------------------------------------------
 		//   HANDLE MESSAGE
@@ -899,7 +903,7 @@ write_thread(void)
 	// otherwise it will go into fail safe
 	while ( !time_to_exit )
 	{
-		usleep(250000);   // Stream at 4Hz
+		// usleep(250000);   // Stream at 4Hz
 		usleep(125000);   // Stream at 4Hz
 		write_setpoint();
 	}
