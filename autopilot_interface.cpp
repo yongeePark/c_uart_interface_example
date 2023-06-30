@@ -663,7 +663,6 @@ start()
 
 	while ( not current_messages.sysid )
 	{
-		std::cout<<"time to exit : "<<time_to_exit<<std::endl;
 		if ( time_to_exit )
 			return;
 		usleep(500000); // check at 2Hz
@@ -901,6 +900,7 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		usleep(250000);   // Stream at 4Hz
+		usleep(125000);   // Stream at 4Hz
 		write_setpoint();
 	}
 
