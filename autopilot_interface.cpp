@@ -256,7 +256,8 @@ read_messages()
 			// show pointclouds
 			mavlink_pointcloud_t pc_msg;
 			mavlink_msg_pointcloud_decode(&message, &pc_msg);
-			std::cout<<"current number of the points : "<<pc_msg.number<<std::endl;
+			std::cout<<"current number of the pointts : "<<pc_msg.number<<std::endl;
+			std::cout<<"points 1 : "<<pc_msg.x01<<pc_msg.y01<<pc_msg.z01<<std::endl;
 		}
 		
 
