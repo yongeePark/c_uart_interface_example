@@ -239,6 +239,7 @@ read_messages()
 	bool received_all = false;  // receive only one message
 	Time_Stamps this_timestamps;
 
+	int i=0;
 	// Blocking wait for new data
 	while ( !received_all and !time_to_exit )
 	{
@@ -250,6 +251,8 @@ read_messages()
 		if(success)
 		{
 			std::cout<<"Success : "<<success<<std::endl;
+			std::cout<<"index : "<<i<<std::endl;
+			++i;
 		}
 		
 
