@@ -159,7 +159,6 @@ top (int argc, char **argv)
 	int sec=1;
 	usleep(1000000*sec);
 	//commands(autopilot_interface, autotakeoff);
-	std::cout<<"here2?"<<std::endl;
 
 	// --------------------------------------------------------------------------
 	//   THREAD and PORT SHUTDOWN
