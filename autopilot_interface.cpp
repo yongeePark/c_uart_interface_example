@@ -489,14 +489,12 @@ write_pointcloud()
 	// mavlink_pointcloud.y21 = 0;
 	// mavlink_pointcloud.z21 = 0;
 
-
-	std::cout<<"system id : "<<system_id<<std::endl;
 	mavlink_message_t message;
 	// mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 	mavlink_msg_pointcloud_encode(system_id, companion_id, &message, &mavlink_pointcloud);
 
 	int len = write_message(message);
-
+	std::cout<<"len : "<<len<<std::endl;
 	// check the write
 	if ( len <= 0 )
 		fprintf(stderr,"WARNING: could not send POINTCLOUD \n");
@@ -1002,10 +1000,10 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		usleep(100000);   // Stream at 4Hz
+		usleep(500000);   // Stream at 4Hz
 		// write_setpoint();
 		// std::cout<<"send"<<std::endl;
-		write_pointcloud();
+		write_pointcloud(); //
 	}
 
 	// signal end
