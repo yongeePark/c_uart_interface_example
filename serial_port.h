@@ -63,7 +63,8 @@
 #include <signal.h>
 
 // #include <common/mavlink.h>
-#include <temp/common2/mavlink.h>
+#include <temp/pointcloud/mavlink.h>
+#include <temp/pointcloud/pointcloud.h>
 #include "generic_port.h"
 
 // ------------------------------------------------------------------------------

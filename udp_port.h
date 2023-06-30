@@ -74,7 +74,7 @@
 #include <stdbool.h>
 
 // #include <common/mavlink.h>
-#include <temp/common2/mavlink.h>
+#include <temp/common/mavlink.h>
 
 #include "generic_port.h"
 

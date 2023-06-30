@@ -413,18 +413,6 @@ write_message(mavlink_message_t message)
 	// Done!
 	return len;
 }
-void
-Autopilot_Interface::
-write_pointcloud()
-{
-	//
-	mavlink_pointcloud_t mavlink_pointcloud;
-	// uint8_t system_id = 220;
-	mavlink_pointcloud.number = 10;
-	mavlink_pointcloud.x01 = 0.0;
-	mavlink_pointcloud.y01 = 0.0;
-	mavlink_pointcloud.z01 = 0.0;
-	
 	// mavlink_pointcloud.x02 = 0;
 	// mavlink_pointcloud.y02 = 0;
 	// mavlink_pointcloud.z02 = 0;
@@ -489,12 +477,24 @@ write_pointcloud()
 	// mavlink_pointcloud.y21 = 0;
 	// mavlink_pointcloud.z21 = 0;
 
+void
+Autopilot_Interface::
+write_pointcloud()
+{
+	//
+	mavlink_pointcloud_t mavlink_pointcloud;
+	// uint8_t system_id = 220;
+	mavlink_pointcloud.number = 10;
+	mavlink_pointcloud.x01 = 0.0;
+	mavlink_pointcloud.y01 = 0.0;
+	mavlink_pointcloud.z01 = 0.0;
+	
+
+
 	mavlink_message_t message;
-	// mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 	mavlink_msg_pointcloud_encode(system_id, companion_id, &message, &mavlink_pointcloud);
 
 	int len = write_message(message);
-	std::cout<<"len : "<<len<<std::endl;
 	// check the write
 	if ( len <= 0 )
 		fprintf(stderr,"WARNING: could not send POINTCLOUD \n");
@@ -531,7 +531,6 @@ write_setpoint()
 	// --------------------------------------------------------------------------
 	//   ENCODE
 	// --------------------------------------------------------------------------
-	std::cout<<"system id : "<<system_id<<std::endl;
 	mavlink_message_t message;
 	mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 

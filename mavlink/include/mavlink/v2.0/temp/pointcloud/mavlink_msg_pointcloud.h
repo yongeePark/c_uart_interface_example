@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE POINTCLOUD PACKING
 
-#define MAVLINK_MSG_ID_POINTCLOUD 220
+#define MAVLINK_MSG_ID_POINTCLOUD 205
 
 
 typedef struct __mavlink_pointcloud_t {
@@ -13,17 +13,17 @@ typedef struct __mavlink_pointcloud_t {
 
 #define MAVLINK_MSG_ID_POINTCLOUD_LEN 16
 #define MAVLINK_MSG_ID_POINTCLOUD_MIN_LEN 16
-#define MAVLINK_MSG_ID_220_LEN 16
-#define MAVLINK_MSG_ID_220_MIN_LEN 16
+#define MAVLINK_MSG_ID_205_LEN 16
+#define MAVLINK_MSG_ID_205_MIN_LEN 16
 
 #define MAVLINK_MSG_ID_POINTCLOUD_CRC 189
-#define MAVLINK_MSG_ID_220_CRC 189
+#define MAVLINK_MSG_ID_205_CRC 189
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_POINTCLOUD { \
-    220, \
+    205, \
     "POINTCLOUD", \
     4, \
     {  { "number", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_pointcloud_t, number) }, \

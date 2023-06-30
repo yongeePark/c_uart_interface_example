@@ -65,6 +65,8 @@
 #include <mutex>
 //
 // #include <pointcloud/pointcloud.h>
+
+#include <temp/common/mavlink.h>
 #include <temp/pointcloud/pointcloud.h>
 
 // #include <pointcloud/mavlink.h>

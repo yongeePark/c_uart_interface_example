@@ -6,7 +6,7 @@
         </enums>
         <messages>
             <!-- Messages for OROCA BLDC  -->
-            <message id="220" name="POINTCLOUD">
+            <message id="205" name="POINTCLOUD">
             <description>Custom Point Cloud Message</description>
             <field type="uint32_t" name="number" units="ms" display="default">Timestamp in milliseconds</field>
             <field type="float" name="x01" units="m" display="default">position</field>
