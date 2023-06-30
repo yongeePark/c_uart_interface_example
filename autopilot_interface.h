@@ -64,8 +64,10 @@
 #include <unistd.h>  // UNIX standard function definitions
 #include <mutex>
 
-#include <pointcloud/mavlink.h>
 #include <pointcloud/pointcloud.h>
+#include <pointcloud/mavlink.h>
+
+// #include <pointcloud/mavlink.h>
 
 // ------------------------------------------------------------------------------
 //   Defines
