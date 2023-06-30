@@ -989,11 +989,12 @@ write_thread(void)
 		current_setpoint.data = sp;
 	}
 
-	// write_pointcloud();
+	
 
 	// write a message and signal writing
 	std::cout<<"Check"<<std::endl;	
 	// write_setpoint();
+	write_pointcloud();
 	writing_status = true;
 
 	// Pixhawk needs to see off-board commands at minimum 2Hz,
