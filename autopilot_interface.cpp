@@ -387,9 +387,10 @@ read_messages()
 				;
 
 		// give the write thread time to use the port
-		if ( writing_status > false ) {
-			usleep(100); // look for components of batches at 10kHz
-		}
+
+		// if ( writing_status > false ) {
+		// 	usleep(100); // look for components of batches at 10kHz
+		// }
 
 	} // end: while not received all
 
@@ -907,7 +908,7 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		usleep(125000);   // Stream at 4Hz
+		// usleep(125000);   // Stream at 4Hz
 		write_setpoint();
 	}
 
