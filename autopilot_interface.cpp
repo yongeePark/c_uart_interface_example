@@ -419,11 +419,11 @@ write_pointcloud()
 {
 	//
 	mavlink_pointcloud_t mavlink_pointcloud;
-	uint8_t system_id = 220;
+	// uint8_t system_id = 220;
 	mavlink_pointcloud.number = 10;
-	mavlink_pointcloud.x01 = 0;
-	mavlink_pointcloud.y01 = 0;
-	mavlink_pointcloud.z01 = 0;
+	mavlink_pointcloud.x01 = 0.0;
+	mavlink_pointcloud.y01 = 0.0;
+	mavlink_pointcloud.z01 = 0.0;
 	
 	// mavlink_pointcloud.x02 = 0;
 	// mavlink_pointcloud.y02 = 0;
@@ -490,7 +490,7 @@ write_pointcloud()
 	// mavlink_pointcloud.z21 = 0;
 
 
-
+	std::cout<<"system id : "<<system_id<<std::endl;
 	mavlink_message_t message;
 	// mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 	mavlink_msg_pointcloud_encode(system_id, companion_id, &message, &mavlink_pointcloud);
@@ -533,7 +533,7 @@ write_setpoint()
 	// --------------------------------------------------------------------------
 	//   ENCODE
 	// --------------------------------------------------------------------------
-
+	std::cout<<"system id : "<<system_id<<std::endl;
 	mavlink_message_t message;
 	mavlink_msg_set_position_target_local_ned_encode(system_id, companion_id, &message, &sp);
 
@@ -989,7 +989,7 @@ write_thread(void)
 		current_setpoint.data = sp;
 	}
 
-	write_pointcloud();
+	// write_pointcloud();
 
 	// write a message and signal writing
 	std::cout<<"Check"<<std::endl;	
@@ -1002,9 +1002,9 @@ write_thread(void)
 	{
 		// usleep(250000);   // Stream at 4Hz
 		usleep(100000);   // Stream at 4Hz
-		write_setpoint();
+		// write_setpoint();
 		// std::cout<<"send"<<std::endl;
-		// write_pointcloud();
+		write_pointcloud();
 	}
 
 	// signal end
