@@ -155,7 +155,6 @@ top (int argc, char **argv)
 	/*
 	 * Now we can implement the algorithm we want on top of the autopilot interface
 	 */
-	std::cout<<"here?"<<std::endl;
 	
 	commands(autopilot_interface, autotakeoff);
 	// std::cout<<

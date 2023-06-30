@@ -251,8 +251,7 @@ read_messages()
 		if(success)
 		{
 			std::cout<<"Success : "<<success<<std::endl;
-			std::cout<<"index : "<<i<<std::endl;
-			++i;
+			std::cout<<"index : "<<++i<<std::endl;
 
 			// show pointclouds
 			mavlink_pointcloud_t pc_msg;
@@ -427,7 +426,7 @@ write_pointcloud()
 	//
 	mavlink_pointcloud_t mavlink_pointcloud;
 	// uint8_t system_id = 220;
-	mavlink_pointcloud.number = 10;
+	mavlink_pointcloud.number = 20;
 	mavlink_pointcloud.x01 = 0.0;
 	mavlink_pointcloud.y01 = 0.0;
 	mavlink_pointcloud.z01 = 0.0;
