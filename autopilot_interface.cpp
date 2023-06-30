@@ -253,6 +253,11 @@ read_messages()
 			std::cout<<"Success : "<<success<<std::endl;
 			std::cout<<"index : "<<i<<std::endl;
 			++i;
+
+			// show pointclouds
+			mavlink_pointcloud_t pc_msg;
+			mavlink_msg_pointcloud_decode(&message, &pc_msg);
+			std::cout<<"current number of the points : "<<pc_msg.number<<std::endl;
 		}
 		
 
@@ -999,7 +1004,7 @@ write_thread(void)
 	while ( !time_to_exit )
 	{
 		// usleep(250000);   // Stream at 4Hz
-		usleep(500000);   // Stream at 4Hz
+		usleep(100);   // Stream at 4Hz
 		// write_setpoint();
 		// std::cout<<"send"<<std::endl;
 		write_pointcloud(); ////
