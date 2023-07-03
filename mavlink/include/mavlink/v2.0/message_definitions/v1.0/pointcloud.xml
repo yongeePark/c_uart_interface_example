@@ -2,17 +2,14 @@
     <mavlink>
         <include>common.xml</include>
         <version>3</version>
-        <enums>
-        </enums>
+        <enums></enums>
         <messages>
-            <!-- Messages for OROCA BLDC  -->
             <message id="205" name="POINTCLOUD">
             <description>Custom Point Cloud Message</description>
             <field type="uint32_t" name="number" units="ms" display="default">Timestamp in milliseconds</field>
             <field type="float" name="x01" units="m" display="default">position</field>
             <field type="float" name="y01" units="m" display="default">position</field>
             <field type="float" name="z01" units="m" display="default">position</field>
-
             <field type="float" name="x02" units="m" display="default">position</field>
             <field type="float" name="y02" units="m" display="default">position</field>
             <field type="float" name="z02" units="m" display="default">position</field>
@@ -70,12 +67,6 @@
             <field type="float" name="x20" units="m" display="default">position</field>
             <field type="float" name="y20" units="m" display="default">position</field>
             <field type="float" name="z20" units="m" display="default">position</field>
-            
-            <!-- <field type="float" name="x21" units="m" display="default">position</field>
-            <field type="float" name="y21" units="m" display="default">position</field>
-            <field type="float" name="z21" units="m" display="default">position</field>
-  -->
-
 
             </message>
         </messages>
